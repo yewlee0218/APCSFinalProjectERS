@@ -10,29 +10,23 @@ import java.util.ArrayList;
  */
 public class card extends Actor
 {
-    private int kind;
-    private int number;
-    private int toy;
+    private int suit;
+    private int rank;
+    private GreenfootImage cardFront;
     /**
      * Act - do whatever the card wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-
     public void act()
     {
         // Add your action code here.
     }
-    public card(int kind1, int number1){
-        kind = kind1;
-        number = number1;
-        // intializes a deck of cards
+    public card(int rank, int suit){
+        this.rank = rank;
+        this.suit = suit;
+        //cardFront = new GreenfootImage("card" + rank + suit + ".png");
     }
     public void drawACard(){
-        if (isTouching(table.class)){
-            getWorld().removeObject(this);
-        }
-        // randomly draws cards and places on the table. If there is already a card before 
-        //placing it, removes the card that is already on the table and adds it to 
-        //cardInPile array before placing another one.
+        //setImage(cardFront);
     }
 }

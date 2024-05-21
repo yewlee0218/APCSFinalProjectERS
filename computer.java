@@ -11,13 +11,22 @@ public class computer extends Actor
 {
     private int computerCardNum = 26;
     private ArrayList<card> playerPile = new ArrayList<>();
+    private int timer = 100;
     /**
      * Act - do whatever the computer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
+        MyWorld w = (MyWorld)getWorld();
         displayScore();
+        if (w.playersturn == false){
+            while (timer > 0){
+                timer--;
+            }
+            w.placeCardDownComputer();
+            w.playersturn = true;
+        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();

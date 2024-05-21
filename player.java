@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class player extends Actor
 {
-    public boolean playersturn = true;
     private int playerCardNum = 26;
     private ArrayList<card> playerPile = new ArrayList<>();
     public int timer = 100;
@@ -21,24 +20,21 @@ public class player extends Actor
     
     public void act()
     {
+        MyWorld w = (MyWorld)getWorld();
         displayScore();
         checkIfWin();
         checkIfLose();
-        if (playersturn){
-            MyWorld w = (MyWorld)getWorld();
-            card drawnCard = w.playerCard.remove(0);
-            w.cardInPile.add(drawnCard);
-            w.cardNumInPile++;
-            w.addObject(drawnCard, 300, 200);
+        if (w.playersturn){
+            if (Greenfoot.mousePressed(slap.class)){
+                w.placeCardDownPlayer();
+                w.playersturn = false;
             }
-            // fix this later.
-    }
-    public void placeCardDown(){
-        
+        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
         w.showText("cards", 200, 300);
+        w.showText("Press me to put down a card", 400, 300);
         w.showText(Integer.toString(playerCardNum), 200, 350);
     }
     private void checkIfWin(){
