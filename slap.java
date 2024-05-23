@@ -14,6 +14,8 @@ public class slap extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        if (mousePressed(this)){
+            
+        }
     }
 }

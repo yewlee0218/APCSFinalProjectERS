@@ -67,7 +67,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        card card = new card(0,0);
+        card card = new card(5, 2);
         addObject(card,247,182);
         computer computer = new computer();
         addObject(computer,267,38);
