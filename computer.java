@@ -30,7 +30,7 @@ public class computer extends Actor
         MyWorld w = (MyWorld)getWorld();
         if (w.marriage()){
             w.slapLose();
-            w.showText("marraige", 150, 150);
+            w.showText("marriage", 150, 150);
         } 
         else if (w.divorce()){
             w.slapLose();
