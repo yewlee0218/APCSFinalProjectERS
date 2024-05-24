@@ -73,7 +73,7 @@ public class MyWorld extends World
         addObject(computer,267,38);
         player player = new player();
         addObject(player,262,337);
-        slap slap = new slap();
+        slap slap = new slap(card);
         addObject(slap,377,344);
     }
 }
