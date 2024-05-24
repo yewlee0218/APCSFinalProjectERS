@@ -18,7 +18,6 @@ public class MyWorld extends World
     public ArrayList<card> cardInPile = new ArrayList<>();
     public ArrayList<card> computerCard = new ArrayList<>();
     public ArrayList<card> playerCard = new ArrayList<>();
-    public int cardNumInPile = 0;
     public boolean playersturn = true;
     public MyWorld()
     {    
@@ -70,6 +69,69 @@ public class MyWorld extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
+    public void slapWin(){
+        for (int i = 0; i < cardInPile.size(); i++){
+            playerCard.add(cardInPile.get(i));
+        }
+        cardInPile.clear();
+    }
+    public void slapLose(){
+        for (int i = 0; i < cardInPile.size(); i++){
+            computerCard.add(cardInPile.get(i));
+        }
+        cardInPile.clear();
+        cardInPile.add(0, playerCard.remove(playerCard.size() - 1));
+    }
+    public boolean marriage(){
+        if (cardInPile.size() > 1){
+            if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
+                if (cardInPile.get(cardInPile.size() - 2).getRank() == 12){
+                    return true;
+                }
+            }
+            else if (cardInPile.get(cardInPile.size()-1).getRank() == 12){
+                if (cardInPile.get(cardInPile.size() - 2).getRank() == 11){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean divorce(){
+        if (cardInPile.size() > 2){
+            if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
+                if (cardInPile.get(cardInPile.size() - 3).getRank() == 12){
+                    return true;
+                }
+            }
+            else if (cardInPile.get(cardInPile.size() - 1).getRank() == 12){
+                if (cardInPile.get(cardInPile.size() - 3).getRank() == 11){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean sandwich(){
+        if (cardInPile.size() > 2){
+            if (cardInPile.get(cardInPile.size() - 1).getRank() == cardInPile.get(cardInPile.size()- 3).getRank()){
+                if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size()-3).getSuit()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean couple(){
+        if (cardInPile.size() > 1){
+             if (cardInPile.get(cardInPile.size()-1).getRank() == cardInPile.get(cardInPile.size() - 2).getRank()){
+                if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size() - 2).getSuit()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     private void prepare()
     {
         card card = new card(5, 2);

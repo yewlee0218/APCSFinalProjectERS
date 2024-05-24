@@ -10,9 +10,6 @@ import java.util.ArrayList;
  */
 public class player extends Actor
 {
-    private int playerCardNum = 26;
-    private ArrayList<card> playerPile = new ArrayList<>();
-    public int timer = 100;
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -24,24 +21,43 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
+        if (Greenfoot.isKeyDown("space")){
+            if (w.marriage()){
+                w.slapWin();
+            } 
+            else if (w.divorce()){
+                w.slapWin();
+            }
+            else if (w.couple()){
+                w.slapWin();
+            }
+            else if (w.sandwich()){
+                w.slapWin();
+            }
+            else{
+                w.slapLose();
+            }
+        }
 
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
         w.showText("cards", 200, 300);
         w.showText("Press me to put down a card", 400, 300);
-        w.showText(Integer.toString(playerCardNum), 200, 350);
+        w.showText("Press space to slap", 100, 200);
+        w.showText("Cards in Pile: " + Integer.toString(w.cardInPile.size()), 150, 150);
+        w.showText(Integer.toString(w.playerCard.size()), 200, 350);
     }
     private void checkIfWin(){
         MyWorld w = (MyWorld)getWorld();
-        if (playerCardNum == 52){
+        if (w.playerCard.size() == 52){
             w.showText("You won!", 300, 200);
             Greenfoot.stop();
         }
     }
     private void checkIfLose(){
         MyWorld w = (MyWorld)getWorld();
-        if (playerCardNum == 0){
+        if (w.playerCard.size() == 0){
             w.showText("You lost!", 300, 200);
             Greenfoot.stop();
         }

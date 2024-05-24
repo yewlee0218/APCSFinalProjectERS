@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class slap extends Actor
 {
-    private int timer = 100;
+    private int timer = 70;
     /**
      * Act - do whatever the slap wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,13 +19,14 @@ public class slap extends Actor
         boolean turn = w.getPlayersTurn();
         if (turn == false){
             if (timer > 0){
-                w.showText("Thinking...", 100, 100);
+                w.showText("Waiting...", 100, 100);
                 timer--;
             }
             else{
+                w.showText("", 100, 100);
                 w.placeCardDownComputer();
                 w.setPlayersTurn(true);
-                timer = 100;
+                timer = 70;
             }
         }
         else {
