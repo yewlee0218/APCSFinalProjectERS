@@ -25,6 +25,7 @@ public class slap extends Actor
             else{
                 w.placeCardDownComputer();
                 w.setPlayersTurn(true);
+                timer = 100;
             }
         }
         else {
