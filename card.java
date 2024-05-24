@@ -69,6 +69,7 @@ public class card extends Actor
         return suit;
     }
     public void drawACard(){
+        card.scale(70, 70);
         setImage(card);
     }
 }

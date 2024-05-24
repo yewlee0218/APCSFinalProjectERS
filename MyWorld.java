@@ -29,16 +29,22 @@ public class MyWorld extends World
         distributeCards();
         
     }
+    public boolean getPlayersTurn(){
+        return playersturn;
+    }
+    public void setPlayersTurn(boolean value){
+        playersturn = value;
+    }
     public void placeCardDownPlayer(){
         card drawnCard = playerCard.remove(0);
         cardInPile.add(drawnCard);
-        cardNumInPile++;
+        addObject(drawnCard, 247, 182);
         drawnCard.drawACard();
-    }
+    } 
     public void placeCardDownComputer(){
         card drawnCard = computerCard.remove(0);
         cardInPile.add(drawnCard);
-        cardNumInPile++;
+        addObject(drawnCard, 247, 182);
         drawnCard.drawACard();
     }
     private void initializeDeck(){
@@ -72,5 +78,7 @@ public class MyWorld extends World
         addObject(computer,267,38);
         player player = new player();
         addObject(player,262,337);
+        slap slap = new slap();
+        addObject(slap,371,345);
     }
 }

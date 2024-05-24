@@ -24,12 +24,7 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
-        if (w.playersturn){
-            if (Greenfoot.mousePressed(slap.class)){
-                w.placeCardDownPlayer();
-                w.playersturn = false;
-            }
-        }
+
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();

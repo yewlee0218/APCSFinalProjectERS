@@ -20,13 +20,6 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
-        if (w.playersturn == false){
-            while (timer > 0){
-                timer--;
-            }
-            w.placeCardDownComputer();
-            w.playersturn = true;
-        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
