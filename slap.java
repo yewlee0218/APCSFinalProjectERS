@@ -8,18 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class slap extends Actor
 {
-    card Card;
     /**
      * Act - do whatever the slap wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        if (Greenfoot.mouseClicked(this)){
-            Card.drawACard();
-        }
-    }
-    public slap(card Card){
-        this.Card = Card;
     }
 }

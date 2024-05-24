@@ -60,7 +60,6 @@ public class MyWorld extends World
         }
     }
     
-    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -73,7 +72,5 @@ public class MyWorld extends World
         addObject(computer,267,38);
         player player = new player();
         addObject(player,262,337);
-        slap slap = new slap(card);
-        addObject(slap,377,344);
     }
 }
