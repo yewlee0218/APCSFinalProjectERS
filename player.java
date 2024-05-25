@@ -21,24 +21,24 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
-        if (Greenfoot.isKeyDown("space")){
-            if (w.marriage()){
-                w.slapWin();
-            } 
-            else if (w.divorce()){
-                w.slapWin();
-            }
-            else if (w.couple()){
-                w.slapWin();
-            }
-            else if (w.sandwich()){
-                w.slapWin();
-            }
-            else{
-                w.slapLose();
-            }
-        }
-
+        //if (Greenfoot.isKeyDown("space")){
+        //    if (w.marriage()){
+        //        w.slapWin();
+        //    } 
+        //    else if (w.divorce()){
+        //        w.slapWin();
+        //    }
+        //    else if (w.couple()){
+        //        w.slapWin();
+        //    }
+        //    else if (w.sandwich()){
+        //        w.slapWin();
+        //    }
+        //    else{
+        //        w.slapLose();
+        //    }
+        //}
+        //
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();

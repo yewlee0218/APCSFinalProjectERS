@@ -19,7 +19,7 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
-        checkCases();
+        //checkCases();
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
