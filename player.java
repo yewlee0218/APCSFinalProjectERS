@@ -41,8 +41,8 @@ public class player extends Actor
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
-        w.showText("cards", 200, 300);
-        w.showText("Press me to put down a card", 400, 300);
+        w.showText("Cards", 200, 300);
+        w.showText("Place Card", 400, 300);
         w.showText("Press space to slap", 100, 200);
         w.showText("Cards in Pile: " + Integer.toString(w.cardInPile.size()), 120, 150);
         w.showText(Integer.toString(w.playerCard.size()), 200, 350);

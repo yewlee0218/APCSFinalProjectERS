@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
-
 /**
  * Write a description of class MyWorld here.
  * 
@@ -19,6 +18,7 @@ public class MyWorld extends World
     public ArrayList<card> computerCard = new ArrayList<>();
     public ArrayList<card> playerCard = new ArrayList<>();
     public boolean playersturn = true;
+    private int timer = 100; 
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -89,8 +89,16 @@ public class MyWorld extends World
         else{
             cardInPile.add(0, computerCard.remove(computerCard.size()-1));
         }
-        showText("Slap Invalid.", 500, 150);
+        if (timer > 0){
+            showText("Slap Invalid", 500, 150);
+            timer--;
+        }
+        else{
+            showText("", 100, 100);
+            timer = 100;
+        }
     }
+
     public boolean marriage(){
         if (cardInPile.size() > 1){
             if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
@@ -152,4 +160,5 @@ public class MyWorld extends World
         slap slap = new slap();
         addObject(slap,371,345);
     }
+    
 }
