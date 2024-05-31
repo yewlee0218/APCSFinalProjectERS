@@ -28,7 +28,7 @@ public class MyWorld extends World
         distributeCards();
         
     }
-    public boolean getPlayersTurn(){
+    public boolean isPlayersTurn(){
         return playersturn;
     }
     public void setPlayersTurn(boolean value){
@@ -70,17 +70,26 @@ public class MyWorld extends World
      * That is: create the initial objects and add them to the world.
      */
     public void slapWin(){
-        for (int i = 0; i < cardInPile.size(); i++){
-            playerCard.add(cardInPile.get(i));
+        if (isPlayersTurn()){
+            for (int i = 0; i < cardInPile.size(); i++){
+                playerCard.add(cardInPile.get(i));
+            }   
+        }
+        else{
+            for (int i = 0; i < cardInPile.size(); i++){
+                computerCard.add(cardInPile.get(i));
+            }  
         }
         cardInPile.clear();
     }
     public void slapLose(){
-        for (int i = 0; i < cardInPile.size(); i++){
-            computerCard.add(cardInPile.get(i));
+        if (isPlayersTurn()){
+            cardInPile.add(0, playerCard.remove(playerCard.size() - 1));
         }
-        cardInPile.clear();
-        cardInPile.add(0, playerCard.remove(playerCard.size() - 1));
+        else{
+            cardInPile.add(0, computerCard.remove(computerCard.size()-1));
+        }
+        showText("Slap Invalid.", 500, 150);
     }
     public boolean marriage(){
         if (cardInPile.size() > 1){

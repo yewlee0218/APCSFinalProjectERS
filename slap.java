@@ -16,7 +16,7 @@ public class slap extends Actor
     public void act()
     {   
         MyWorld w = (MyWorld)getWorld();
-        boolean turn = w.getPlayersTurn();
+        boolean turn = w.isPlayersTurn();
         if (turn == false){
             if (timer > 0){
                 w.showText("Waiting...", 100, 100);

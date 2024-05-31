@@ -21,31 +21,30 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
-        //if (Greenfoot.isKeyDown("space")){
-        //    if (w.marriage()){
-        //        w.slapWin();
-        //    } 
-        //    else if (w.divorce()){
-        //        w.slapWin();
-        //    }
-        //    else if (w.couple()){
-        //        w.slapWin();
-        //    }
-        //    else if (w.sandwich()){
-        //        w.slapWin();
-        //    }
-        //    else{
-        //        w.slapLose();
-        //    }
-        //}
-        //
+        if (Greenfoot.isKeyDown("space")){
+              if (w.marriage()){
+                w.slapWin();
+            } 
+            else if (w.divorce()){
+                w.slapWin();
+            }
+            else if (w.couple()){
+                w.slapWin();
+            }
+            else if (w.sandwich()){
+                w.slapWin();
+            }
+            else{
+                w.slapLose();
+            }
+        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
         w.showText("cards", 200, 300);
         w.showText("Press me to put down a card", 400, 300);
         w.showText("Press space to slap", 100, 200);
-        w.showText("Cards in Pile: " + Integer.toString(w.cardInPile.size()), 150, 150);
+        w.showText("Cards in Pile: " + Integer.toString(w.cardInPile.size()), 120, 150);
         w.showText(Integer.toString(w.playerCard.size()), 200, 350);
     }
     private void checkIfWin(){
@@ -62,5 +61,6 @@ public class player extends Actor
             Greenfoot.stop();
         }
     }
+    
     
 }

@@ -19,7 +19,9 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
-        //checkCases();
+        if (w.isPlayersTurn() == false){
+            checkCases();
+        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
@@ -28,21 +30,25 @@ public class computer extends Actor
     }
     private void checkCases(){
         MyWorld w = (MyWorld)getWorld();
+        
         if (w.marriage()){
-            w.slapLose();
+            w.slapWin();
             w.showText("marriage", 150, 150);
         } 
         else if (w.divorce()){
-            w.slapLose();
+            w.slapWin();
             w.showText("divorce", 150, 150);
         }
         else if (w.couple()){
-            w.slapLose();
+            w.slapWin();
             w.showText("couple", 150, 150);
         }
         else if (w.sandwich()){
-            w.slapLose();
+            w.slapWin();
             w.showText("sandwich", 150, 150);
+        }
+        else{
+            w.slapLose();
         }
     }
 }
