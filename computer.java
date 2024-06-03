@@ -24,7 +24,7 @@ public class computer extends Actor
         if (w.cardInPile.size() > 2){
             if (w.cardInPile.get(w.cardInPile.size()-1).getRank() == 11 || w.cardInPile.get(w.cardInPile.size()-1).getRank() == 12){
                 if (chance < 25){
-                    checkCases(); 
+                    checkCases();
                 }
             }
             if (w.cardInPile.get(w.cardInPile.size() - 1).getSuit() == w.cardInPile.get(w.cardInPile.size() - 2).getSuit()){

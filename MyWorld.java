@@ -18,6 +18,7 @@ public class MyWorld extends World
     public ArrayList<card> computerCard = new ArrayList<>();
     public ArrayList<card> playerCard = new ArrayList<>();
     public boolean playersturn = true;
+    public boolean hasSlapped = false;
     private int timer = 100; 
     public MyWorld()
     {    
@@ -98,7 +99,6 @@ public class MyWorld extends World
             timer = 100;
         }
     }
-
     public boolean marriage(){
         if (cardInPile.size() > 1){
             if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
