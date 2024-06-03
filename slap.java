@@ -24,14 +24,30 @@ public class slap extends Actor
             }
             else{
                 w.showText("", 100, 100);
-                w.placeCardDownComputer();
+                if ((w.cardInPile.size() > 0) && (w.isSpecial())){
+                    boolean check = w.ifSpecialCard(w.getComputerCard());
+                    if (!check){
+                        w.slapWin(w.getPlayerCard());
+                    }
+                }
+                else{
+                    w.placeCardDown(w.getComputerCard());
+                }
                 w.setPlayersTurn(true);
                 timer = 100;
             }
         }
         else {
             if (Greenfoot.mousePressed(this)){
-                w.placeCardDownPlayer();
+                if ((w.cardInPile.size() > 0) && (w.isSpecial())){
+                    boolean check = w.ifSpecialCard(w.getPlayerCard());
+                    if (!check){
+                        w.slapWin(w.getComputerCard());
+                    }
+                }
+                else{
+                    w.placeCardDown(w.getPlayerCard());
+                }
                 w.setPlayersTurn(false);
             }
         }      

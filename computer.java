@@ -19,26 +19,6 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
-        int chance = (int)(Math.random() * 200)+1;
-        
-        if (w.cardInPile.size() > 2){
-            if (w.cardInPile.get(w.cardInPile.size()-1).getRank() == 11 || w.cardInPile.get(w.cardInPile.size()-1).getRank() == 12){
-                if (chance < 25){
-                    checkCases();
-                }
-            }
-            if (w.cardInPile.get(w.cardInPile.size() - 1).getSuit() == w.cardInPile.get(w.cardInPile.size() - 2).getSuit()){
-                if (chance < 25){
-                    checkCases();
-                }
-            }
-        } 
-        
-        
-        //int chance = (int)(Math.random()*150)+1;
-        //if (chance == 18){
-            //checkCases();
-        //}
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
@@ -48,23 +28,23 @@ public class computer extends Actor
     private void checkCases(){
         MyWorld w = (MyWorld)getWorld();
         if (w.marriage()){
-            w.slapWin();
+        //    w.slapWin();
             w.showText("marriage", 500, 150);
         } 
         else if (w.divorce()){
-            w.slapWin();
+        //    w.slapWin();
             w.showText("divorce", 500, 150);
         }
         else if (w.couple()){
-            w.slapWin();
+        //    w.slapWin();
             w.showText("couple", 500, 150);
         }
         else if (w.sandwich()){
-            w.slapWin();
+        //    w.slapWin();
             w.showText("sandwich", 500, 150);
         }
         else{
-            w.slapLose();
+       //     w.slapLose();
         }
     }
 }

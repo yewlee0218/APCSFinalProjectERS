@@ -22,20 +22,20 @@ public class player extends Actor
         checkIfWin();
         checkIfLose();
         if (Greenfoot.isKeyDown("space")){
-              if (w.marriage()){
-                w.slapWin();
+            if (w.marriage()){
+            //    w.slapWin();
             } 
             else if (w.divorce()){
-                w.slapWin();
+              //  w.slapWin();
             }
             else if (w.couple()){
-                w.slapWin();
+             //   w.slapWin();
             }
             else if (w.sandwich()){
-                w.slapWin();
+             //   w.slapWin();
             }
             else{
-                w.slapLose();
+             //   w.slapLose();
             }
         }
     }

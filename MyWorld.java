@@ -32,17 +32,17 @@ public class MyWorld extends World
     public boolean isPlayersTurn(){
         return playersturn;
     }
+    public ArrayList getPlayerCard(){
+        return playerCard;
+    }
+    public ArrayList getComputerCard(){
+        return computerCard;
+    }
     public void setPlayersTurn(boolean value){
         playersturn = value;
     }
-    public void placeCardDownPlayer(){
-        card drawnCard = playerCard.remove(0);
-        cardInPile.add(drawnCard);
-        addObject(drawnCard, 247, 182);
-        drawnCard.drawACard();
-    } 
-    public void placeCardDownComputer(){
-        card drawnCard = computerCard.remove(0);
+    public void placeCardDown(ArrayList<card> list){
+        card drawnCard = list.remove(0);
         cardInPile.add(drawnCard);
         addObject(drawnCard, 247, 182);
         drawnCard.drawACard();
@@ -70,20 +70,13 @@ public class MyWorld extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    public void slapWin(){
-        if (isPlayersTurn()){
-            for (int i = 0; i < cardInPile.size(); i++){
-                playerCard.add(cardInPile.get(i));
-            }   
-        }
-        else{
-            for (int i = 0; i < cardInPile.size(); i++){
-                computerCard.add(cardInPile.get(i));
-            }  
+    public void slapWin(ArrayList<card> list){
+        for (int i = 0; i < cardInPile.size(); i++){
+            list.add(cardInPile.get(i));
         }
         cardInPile.clear();
     }
-    public void slapLose(){
+    public void slapLose(ArrayList<card> list){
         if (isPlayersTurn()){
             cardInPile.add(0, playerCard.remove(playerCard.size() - 1));
         }
@@ -91,7 +84,7 @@ public class MyWorld extends World
             cardInPile.add(0, computerCard.remove(computerCard.size()-1));
         }
         if (timer > 0){
-            showText("Slap Invalid", 500, 150);
+            showText("L", 500, 150);
             timer--;
         }
         else{
@@ -161,5 +154,33 @@ public class MyWorld extends World
         slap slap = new slap();
         addObject(slap,371,345);
     }
-    
+    public boolean isSpecial(){
+        if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){
+            return true;
+        }
+        return false;
+    }
+    public boolean ifSpecialCard(ArrayList<card> list){
+        int count = 0;
+        if (cardInPile.get(cardInPile.size() - 1).getRank() == 10){ // jack
+            count = 1;
+        }
+        else if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){ // queen
+            count = 2;
+        }
+        else if (cardInPile.get(cardInPile.size() - 1).getRank() == 12){ // king
+            count = 3;
+        }
+        else if (cardInPile.get(cardInPile.size() - 1).getRank() == 13){ // ace
+            count = 4;
+        }
+        while (count > 0){
+            placeCardDown(list);
+            count--;
+            if (isSpecial()){
+                return true;
+            }
+        }
+        return false;
+    }
 }
