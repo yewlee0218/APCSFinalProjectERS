@@ -132,9 +132,10 @@ public class MyWorld extends World
     public boolean sandwich(){
         if (cardInPile.size() > 2){
             if (cardInPile.get(cardInPile.size() - 1).getRank() == cardInPile.get(cardInPile.size()- 3).getRank()){
-                if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size()-3).getSuit()){
-                    return true;
-                }
+                return true;
+                //if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size()-3).getSuit()){
+                   // return true;
+                //}
             }
         }
         return false;
