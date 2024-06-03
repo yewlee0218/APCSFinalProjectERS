@@ -77,12 +77,7 @@ public class MyWorld extends World
         cardInPile.clear();
     }
     public void slapLose(ArrayList<card> list){
-        if (isPlayersTurn()){
-            cardInPile.add(0, playerCard.remove(playerCard.size() - 1));
-        }
-        else{
-            cardInPile.add(0, computerCard.remove(computerCard.size()-1));
-        }
+        cardInPile.add(0, list.remove(list.size()-1));
         if (timer > 0){
             showText("L", 500, 150);
             timer--;
