@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class player extends Actor
 {
+    private int timer;
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,7 +22,6 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
-
         if (Greenfoot.isKeyDown("space")){
             Greenfoot.delay(10);
             if (w.marriage()){
@@ -37,20 +37,13 @@ public class player extends Actor
                 w.slapWin(w.playerCard);
             }
             else{
-                w.slapLose(w.playerCard);
-                w.textshowing = "Slap Invalid";
-                if (w.timer > 100){
-                    w.showText(w.textshowing, 500, 150);
-                    w.timer--;
+                timer = 100;
+                while (timer > 0){
+                    w.showText("slap invalid", 500, 150);
+                    timer--;
                 }
-                w.textshowing = "";
-                if (w.timer <= 100){
-                    w.showText(w.textshowing, 500, 150);
-                    w.timer--;
-                    if (w.timer == 0){
-                        w.timer = 200;
-                    }
-                }
+                w.showText(" ", 500, 150);
+                w.slapLose(w.getPlayerCard());
             }
         }
     }
