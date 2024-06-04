@@ -21,21 +21,31 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
+
         if (Greenfoot.isKeyDown("space")){
+            Greenfoot.delay(10);
             if (w.marriage()){
-            //    w.slapWin();
+                w.slapWin(w.playerCard);
             } 
             else if (w.divorce()){
-              //  w.slapWin();
+                w.slapWin(w.playerCard);
             }
             else if (w.couple()){
-             //   w.slapWin();
+                w.slapWin(w.playerCard);
             }
             else if (w.sandwich()){
-             //   w.slapWin();
+                w.slapWin(w.playerCard);
             }
             else{
-             //   w.slapLose();
+                while (w.timer > 0){
+                    w.textshowing = "Slap Invalid";
+                    w.showText(w.textshowing, 500, 150);
+                    w.timer--;
+                }
+                w.slapLose(w.playerCard);
+                w.textshowing = "";
+                w.showText(w.textshowing, 500, 150);
+                w.timer = 10; 
             }
         }
     }

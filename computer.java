@@ -9,8 +9,7 @@ import java.util.*;
  */
 public class computer extends Actor
 {
-    private ArrayList<card> playerPile = new ArrayList<>();
-    private int timer = 100;
+    //private ArrayList<card> playerPile = new ArrayList<>();
     /**
      * Act - do whatever the computer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,23 +27,23 @@ public class computer extends Actor
     private void checkCases(){
         MyWorld w = (MyWorld)getWorld();
         if (w.marriage()){
-        //    w.slapWin();
+            w.slapWin(w.computerCard);
             w.showText("marriage", 500, 150);
         } 
         else if (w.divorce()){
-        //    w.slapWin();
+            w.slapWin(w.computerCard);
             w.showText("divorce", 500, 150);
         }
         else if (w.couple()){
-        //    w.slapWin();
+            w.slapWin(w.computerCard);
             w.showText("couple", 500, 150);
         }
         else if (w.sandwich()){
-        //    w.slapWin();
+            w.slapWin(w.computerCard);
             w.showText("sandwich", 500, 150);
         }
         else{
-       //     w.slapLose();
+            w.slapLose(w.computerCard);
         }
     }
 }

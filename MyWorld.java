@@ -19,7 +19,8 @@ public class MyWorld extends World
     public ArrayList<card> playerCard = new ArrayList<>();
     public boolean playersturn = true;
     public boolean hasSlapped = false;
-    private int timer = 100; 
+    public int timer = 10;
+    public String textshowing = "Slap Invalid";
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -78,15 +79,7 @@ public class MyWorld extends World
     }
     public void slapLose(ArrayList<card> list){
         cardInPile.add(0, list.remove(list.size()-1));
-        if (timer > 0){
-            showText("L", 500, 150);
-            timer--;
-        }
-        else{
-            showText("", 100, 100);
-            timer = 100;
-        }
-    }
+     }
     public boolean marriage(){
         if (cardInPile.size() > 1){
             if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
