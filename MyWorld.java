@@ -19,7 +19,7 @@ public class MyWorld extends World
     public ArrayList<card> playerCard = new ArrayList<>();
     public boolean playersturn = true;
     public boolean hasSlapped = false;
-    public int timer = 10;
+    public int timer = 100;
     public String textshowing = "Slap Invalid";
     public MyWorld()
     {    

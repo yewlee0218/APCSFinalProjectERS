@@ -37,15 +37,20 @@ public class player extends Actor
                 w.slapWin(w.playerCard);
             }
             else{
-                while (w.timer > 0){
-                    w.textshowing = "Slap Invalid";
+                w.slapLose(w.playerCard);
+                w.textshowing = "Slap Invalid";
+                if (w.timer > 100){
                     w.showText(w.textshowing, 500, 150);
                     w.timer--;
                 }
-                w.slapLose(w.playerCard);
                 w.textshowing = "";
-                w.showText(w.textshowing, 500, 150);
-                w.timer = 10; 
+                if (w.timer <= 100){
+                    w.showText(w.textshowing, 500, 150);
+                    w.timer--;
+                    if (w.timer == 0){
+                        w.timer = 200;
+                    }
+                }
             }
         }
     }
