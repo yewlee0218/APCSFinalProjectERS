@@ -17,6 +17,7 @@ public class MyWorld extends World
     public ArrayList<card> cardInPile = new ArrayList<>();
     public ArrayList<card> computerCard = new ArrayList<>();
     public ArrayList<card> playerCard = new ArrayList<>();
+    public boolean slapValid = true;
     public boolean playersturn = true;
     public boolean hasSlapped = false;
     public int timer = 100;
@@ -41,6 +42,7 @@ public class MyWorld extends World
     }
     public void setPlayersTurn(boolean value){
         playersturn = value;
+        slapValid = true;
     }
     public void placeCardDown(ArrayList<card> list){
         card drawnCard = list.remove(0);
@@ -82,52 +84,52 @@ public class MyWorld extends World
      }
     public boolean marriage(){
         if (cardInPile.size() > 1){
-            if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
-                if (cardInPile.get(cardInPile.size() - 2).getRank() == 12){
-                    return true;
-                }
-            }
-            else if (cardInPile.get(cardInPile.size()-1).getRank() == 12){
-                if (cardInPile.get(cardInPile.size() - 2).getRank() == 11){
-                    return true;
-                }
+            if (ifQueenAndKing(cardInPile.get(cardInPile.size() - 1), cardInPile.get(cardInPile.size() - 2))){
+                return true;
             }
         }
         return false;
     }
     public boolean divorce(){
         if (cardInPile.size() > 2){
-            if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){
-                if (cardInPile.get(cardInPile.size() - 3).getRank() == 12){
-                    return true;
-                }
+            if (ifQueenAndKing(cardInPile.get(cardInPile.size() - 1), cardInPile.get(cardInPile.size() - 3))){
+                return true;
             }
-            else if (cardInPile.get(cardInPile.size() - 1).getRank() == 12){
-                if (cardInPile.get(cardInPile.size() - 3).getRank() == 11){
-                    return true;
-                }
-            }
+        }
+        return false;
+    }
+    public boolean ifQueenAndKing(card a, card b){
+        if ((a.getRank() == 11 || a.getRank() == 12) && (b.getRank() == 11 || b.getRank() == 12)){
+            return true;
         }
         return false;
     }
     public boolean sandwich(){
         if (cardInPile.size() > 2){
-            if (cardInPile.get(cardInPile.size() - 1).getRank() == cardInPile.get(cardInPile.size()- 3).getRank()){
+            if (sameCard(cardInPile.get(cardInPile.size() - 1), cardInPile.get(cardInPile.size() - 3))){
                 return true;
-                //if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size()-3).getSuit()){
-                   // return true;
-                //}
             }
         }
         return false;
     }
     public boolean couple(){
         if (cardInPile.size() > 1){
-             if (cardInPile.get(cardInPile.size()-1).getRank() == cardInPile.get(cardInPile.size() - 2).getRank()){
-                if (cardInPile.get(cardInPile.size() - 1).getSuit() == cardInPile.get(cardInPile.size() - 2).getSuit()){
-                    return true;
-                }
+            if (sameCard(cardInPile.get(cardInPile.size() - 1), cardInPile.get(cardInPile.size() - 2))){
+                return true;
             }
+        }
+        return false;
+    }
+    public boolean sameCard(card a, card b){
+        if (a.getRank() == b.getRank()){
+            return true;
+        }
+        return false;
+    }
+    public boolean redTen(){
+        card top = cardInPile.get(cardInPile.size() - 1);
+        if ((top.getRank() == 9) && (top.getSuit() == 1 || top.getSuit() == 2)){
+            return true;
         }
         return false;
     }
