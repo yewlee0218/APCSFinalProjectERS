@@ -22,24 +22,31 @@ public class player extends Actor
         displayScore();
         checkIfWin();
         checkIfLose();
+        w.ifPatternSlapped = false; 
         if (Greenfoot.isKeyDown("space")){
             if (w.marriage()){
                 w.slapWin(w.playerCard);
+                w.ifPatternSlapped = true; 
             } 
             else if (w.divorce()){
                 w.slapWin(w.playerCard);
+                w.ifPatternSlapped = true; 
             }
             else if (w.couple()){
                 w.slapWin(w.playerCard);
+                w.ifPatternSlapped = true; 
             }
             else if (w.sandwich()){
                 w.slapWin(w.playerCard);
+                w.ifPatternSlapped = true; 
             }
-            //else if (w.redTen()){
-                //w.slapWin(w.playerCard);
-            //}
+            else if (w.redTen()){
+                w.slapWin(w.playerCard);
+                w.ifPatternSlapped = true; 
+            }
             else if (w.slapValid == true) {
                 w.slapLose(w.getPlayerCard());
+                w.ifPatternSlapped = false; 
                 w.slapValid = false;
             }
         }

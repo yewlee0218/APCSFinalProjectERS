@@ -19,40 +19,38 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
-        int random = (int)(Math.random()*10000)+1;
-        if (random < 5){
-            checkCases();
-        }
+        checkCases();
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
         w.showText("cards", 200, 50);
         w.showText(Integer.toString(w.computerCard.size()), 200, 100);
     }
-    private void checkCases(){
+    private boolean ifSpecialMethod(){
         MyWorld w = (MyWorld)getWorld();
         if (w.marriage()){
-            w.slapWin(w.computerCard);
-            w.showText("marriage", 500, 150);
-        } 
-        else if (w.divorce()){
-            w.slapWin(w.computerCard);
-            w.showText("divorce", 500, 150);
+            return true;
         }
-        else if (w.couple()){
-            w.slapWin(w.computerCard);
-            w.showText("couple", 500, 150);
+        else if (w.divorce()){
+            return true;
         }
         else if (w.sandwich()){
-            w.slapWin(w.computerCard);
-            w.showText("sandwich", 500, 150);
+            return true;
         }
-        //else if (w.redTen()){
-            //w.slapWin(w.computerCard);
-            //w.showText("red ten", 500, 150); 
-        //}
-        else{
-            w.slapLose(w.computerCard);
+        else if (w.couple()){
+            return true;
+        }
+        else if (w.redTen()){
+            return true;
+        }
+        return false;
+    }
+    private void checkCases(){
+        MyWorld w = (MyWorld)getWorld();
+        if (ifSpecialMethod()){
+            if (w.ifPatternSlapped == false){
+                w.slapWin(w.computerCard);
+            }
         }
     }
 }

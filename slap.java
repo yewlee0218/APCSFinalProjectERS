@@ -39,24 +39,39 @@ public class slap extends Actor
         }
         else {
             if (Greenfoot.mousePressed(this)){
-                if ((w.cardInPile.size() > 0) && (w.isSpecial())){
-                    boolean check = w.ifSpecialCard(w.getPlayerCard());
-                    if (!check){
-                        w.slapWin(w.getComputerCard());
+                int beginning = 1;
+                if (w.cardInPile.size() > 0){
+                    boolean checkSpecial = w.ifSpecialCard(w.getPlayerCard());
+                    if (beginning == 1){
+                        beginning = 0; 
+                        w.placeCardDown(w.getPlayerCard());
+                        if (w.isSpecial() == false){
+                            w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
+                        }
+                        else{
+                            w.setPlayersTurn(false);
+                        }
                     }
-                    //w.setPlayersTurn(false);
+                    else{
+                        w.placeCardDown(w.getPlayerCard());
+                        if (w.specialCardCount > 0){
+                            w.specialCardCount--;
+                            w.setPlayersTurn(true);
+                            w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
+                        }
+                        else{
+                            beginning = 1; 
+                            w.setPlayersTurn(false);
+                            w.showText("", 500, 150);
+                        }
+                    }
                 }
                 else{
                     w.placeCardDown(w.getPlayerCard());
-                    //w.specialCardCount--;
-                    //if (w.ifSpecialCard(w.getPlayerCard()) == false){
-                        //w.setPlayersTurn(true);
-                    //}
-                    //else{
-                        //w.setPlayersTurn(false);
-                    //}
+                    w.setPlayersTurn(false);
                 }
-                w.setPlayersTurn(false); //i wanted to comment this out
+                
+                //w.setPlayersTurn(false); //i wanted to comment this out
             }
         }      
     }

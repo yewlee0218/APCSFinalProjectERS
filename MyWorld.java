@@ -20,6 +20,7 @@ public class MyWorld extends World
     public boolean slapValid = true;
     public boolean playersturn = true;
     public boolean hasSlapped = false;
+    public boolean ifPatternSlapped = false;
     public int timer = 100;
     public String textshowing = "Slap Invalid";
     public int specialCardCount = 0; 
@@ -79,6 +80,9 @@ public class MyWorld extends World
             list.add(cardInPile.get(i));
         }
         cardInPile.clear();
+        showText("Slapped", 500, 150); 
+        Greenfoot.delay(100);
+        showText("", 500, 150);
     }
     public void slapLose(ArrayList<card> list){
         cardInPile.add(0, list.remove(list.size()-1));
@@ -131,9 +135,11 @@ public class MyWorld extends World
         return false;
     }
     public boolean redTen(){
-        card top = cardInPile.get(cardInPile.size() - 1);
-        if ((top.getRank() == 9) && (top.getSuit() == 1 || top.getSuit() == 2)){
-            return true;
+        if (cardInPile.size() > 0){
+            card top = cardInPile.get(cardInPile.size() - 1);
+            if ((top.getRank() == 9) && (top.getSuit() == 1 || top.getSuit() == 2)){
+                return true;
+            }   
         }
         return false;
     }
@@ -172,11 +178,6 @@ public class MyWorld extends World
                 placeCardDown(list);
                 Greenfoot.delay(50);
                 specialCardCount--;
-            }
-            else{
-                showText("Must place" + specialCardCount + "\nmore cards.", 500, 150);
-                Greenfoot.delay(100);
-                showText("", 500, 150);
             }
             if (isSpecial()){
                 return true;
