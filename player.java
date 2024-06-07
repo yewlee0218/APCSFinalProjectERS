@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class player extends Actor
 {
-    private int timer = 100;
+    //public int timer = 100;
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,7 +36,7 @@ public class player extends Actor
                 w.slapWin(w.playerCard);
             }
             //else if (w.redTen()){
-            //    w.slapWin(w.playerCard);
+                //w.slapWin(w.playerCard);
             //}
             else if (w.slapValid == true) {
                 w.slapLose(w.getPlayerCard());

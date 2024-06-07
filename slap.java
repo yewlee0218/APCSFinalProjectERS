@@ -44,11 +44,19 @@ public class slap extends Actor
                     if (!check){
                         w.slapWin(w.getComputerCard());
                     }
+                    //w.setPlayersTurn(false);
                 }
                 else{
                     w.placeCardDown(w.getPlayerCard());
+                    //w.specialCardCount--;
+                    //if (w.ifSpecialCard(w.getPlayerCard()) == false){
+                        //w.setPlayersTurn(true);
+                    //}
+                    //else{
+                        //w.setPlayersTurn(false);
+                    //}
                 }
-                w.setPlayersTurn(false);
+                w.setPlayersTurn(false); //i wanted to comment this out
             }
         }      
     }

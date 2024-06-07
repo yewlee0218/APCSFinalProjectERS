@@ -22,6 +22,7 @@ public class MyWorld extends World
     public boolean hasSlapped = false;
     public int timer = 100;
     public String textshowing = "Slap Invalid";
+    public int specialCardCount = 0; 
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -81,6 +82,9 @@ public class MyWorld extends World
     }
     public void slapLose(ArrayList<card> list){
         cardInPile.add(0, list.remove(list.size()-1));
+        showText("Slap Invalid", 500, 150);
+        Greenfoot.delay(100);
+        showText("", 500, 150);
      }
     public boolean marriage(){
         if (cardInPile.size() > 1){
@@ -151,22 +155,29 @@ public class MyWorld extends World
         return false;
     }
     public boolean ifSpecialCard(ArrayList<card> list){
-        int count = 0;
         if (cardInPile.get(cardInPile.size() - 1).getRank() == 10){ // jack
-            count = 1;
+            specialCardCount = 1;
         }
         else if (cardInPile.get(cardInPile.size() - 1).getRank() == 11){ // queen
-            count = 2;
+            specialCardCount = 2;
         }
         else if (cardInPile.get(cardInPile.size() - 1).getRank() == 12){ // king
-            count = 3;
+            specialCardCount = 3;
         }
         else if (cardInPile.get(cardInPile.size() - 1).getRank() == 13){ // ace
-            count = 4;
+            specialCardCount = 4;
         }
-        while (count > 0){
-            placeCardDown(list);
-            count--;
+        while (specialCardCount > 0){
+            if (!isPlayersTurn()){
+                placeCardDown(list);
+                Greenfoot.delay(50);
+                specialCardCount--;
+            }
+            else{
+                showText("Must place" + specialCardCount + "\nmore cards.", 500, 150);
+                Greenfoot.delay(100);
+                showText("", 500, 150);
+            }
             if (isSpecial()){
                 return true;
             }

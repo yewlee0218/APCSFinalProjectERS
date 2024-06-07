@@ -10,6 +10,7 @@ import java.util.*;
 public class computer extends Actor
 {
     //private ArrayList<card> playerPile = new ArrayList<>();
+    //public int timer = 100;
     /**
      * Act - do whatever the computer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,6 +19,10 @@ public class computer extends Actor
     {
         MyWorld w = (MyWorld)getWorld();
         displayScore();
+        int random = (int)(Math.random()*10000)+1;
+        if (random < 5){
+            checkCases();
+        }
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
@@ -42,6 +47,10 @@ public class computer extends Actor
             w.slapWin(w.computerCard);
             w.showText("sandwich", 500, 150);
         }
+        //else if (w.redTen()){
+            //w.slapWin(w.computerCard);
+            //w.showText("red ten", 500, 150); 
+        //}
         else{
             w.slapLose(w.computerCard);
         }
