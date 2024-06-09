@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class slap extends Actor
 {
     private int timer = 100;
+    private int beginning = 1;
     /**
      * Act - do whatever the slap wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -39,20 +40,28 @@ public class slap extends Actor
         }
         else {
             if (Greenfoot.mousePressed(this)){
-                int beginning = 1;
                 if (w.cardInPile.size() > 0){
                     boolean checkSpecial = w.ifSpecialCard(w.getPlayerCard());
                     if (beginning == 1){
                         beginning = 0; 
                         w.placeCardDown(w.getPlayerCard());
-                        if (w.isSpecial() == false){
-                            w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
+                        if ((w.cardInPile.get(w.cardInPile.size()-2).getRank()) >= 10 && w.isSpecial() == false){
+                            w.specialCardCount--; 
+                            if (w.specialCardCount > 0){
+                                w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
+                                w.setPlayersTurn(true);
+                            }
+                            else{
+                                w.setPlayersTurn(false);
+                                beginning = 1; 
+                            }
                         }
-                        else{
+                        else {
                             w.setPlayersTurn(false);
+                            beginning = 1;
                         }
                     }
-                    else{
+                    else {
                         w.placeCardDown(w.getPlayerCard());
                         if (w.specialCardCount > 0){
                             w.specialCardCount--;
