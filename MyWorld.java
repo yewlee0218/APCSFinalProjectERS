@@ -31,6 +31,8 @@ public class MyWorld extends World
         prepare();
         initializeDeck();
         distributeCards();
+        GreenfootSound music = new GreenfootSound("ERS.mp3");
+        music.playLoop();
         
     }
     public boolean isPlayersTurn(){
@@ -171,6 +173,10 @@ public class MyWorld extends World
         GreenfootImage boxImage = card.getImage();
         boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
         card.setImage(boxImage);
+        if(hasSlapped == true || ifPatternSlapped == true){
+            card = null;
+            removeObject(card);
+        }
         
         computer computer = new computer();
         addObject(computer,267,38);
