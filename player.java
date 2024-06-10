@@ -25,23 +25,31 @@ public class player extends Actor
         w.ifPatternSlapped = false; 
         if (Greenfoot.isKeyDown("space")){
             if (w.marriage()){
-                w.slapWin(w.playerCard);
+                w.slapWin(w.playerCard, "marriage");
                 w.ifPatternSlapped = true; 
             } 
             else if (w.divorce()){
-                w.slapWin(w.playerCard);
+                w.slapWin(w.playerCard, "divorce");
                 w.ifPatternSlapped = true; 
             }
             else if (w.couple()){
-                w.slapWin(w.playerCard);
+                w.slapWin(w.playerCard, "couple");
                 w.ifPatternSlapped = true; 
             }
             else if (w.sandwich()){
-                w.slapWin(w.playerCard);
+                w.slapWin(w.playerCard, "sandwich");
                 w.ifPatternSlapped = true; 
             }
             else if (w.redTen()){
-                w.slapWin(w.playerCard);
+                w.slapWin(w.playerCard, "redTen");
+                w.ifPatternSlapped = true; 
+            }
+            else if (w.topBottom()){
+                w.slapWin(w.playerCard, "topBottom");
+                w.ifPatternSlapped = true; 
+            }
+            else if (w.threeInARow()){
+                w.slapWin(w.playerCard, "Three in a Row");
                 w.ifPatternSlapped = true; 
             }
             else if (w.slapValid == true) {

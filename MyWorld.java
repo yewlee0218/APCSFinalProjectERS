@@ -75,12 +75,12 @@ public class MyWorld extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    public void slapWin(ArrayList<card> list){
+    public void slapWin(ArrayList<card> list, String s){
         for (int i = 0; i < cardInPile.size(); i++){
             list.add(cardInPile.get(i));
         }
         cardInPile.clear();
-        showText("Slapped", 500, 150); 
+        showText(s, 500, 150); 
         Greenfoot.delay(100);
         showText("", 500, 150);
     }
@@ -140,6 +140,27 @@ public class MyWorld extends World
             if ((top.getRank() == 9) && (top.getSuit() == 1 || top.getSuit() == 2)){
                 return true;
             }   
+        }
+        return false;
+    }
+    public boolean topBottom(){
+        if (cardInPile.size() > 0){
+            if (sameCard(cardInPile.get(0), cardInPile.get(cardInPile.size() - 1))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean threeInARow(){
+        if (cardInPile.size() > 2){
+            int rank = cardInPile.get(cardInPile.size() - 1).getRank();
+            if (rank > 2){
+                if (cardInPile.get(cardInPile.size() - 2).getRank() == rank - 1){
+                    if (cardInPile.get(cardInPile.size() - 3).getRank() == rank - 2){
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }

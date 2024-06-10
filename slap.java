@@ -28,7 +28,7 @@ public class slap extends Actor
                 if ((w.cardInPile.size() > 0) && (w.isSpecial())){
                     boolean check = w.ifSpecialCard(w.getComputerCard());
                     if (!check){
-                        w.slapWin(w.getPlayerCard());
+                        w.slapWin(w.getPlayerCard(), "No Special Card");
                     }
                 }
                 else{
@@ -47,8 +47,8 @@ public class slap extends Actor
                         w.placeCardDown(w.getPlayerCard());
                         if ((w.cardInPile.get(w.cardInPile.size()-2).getRank()) >= 10 && w.isSpecial() == false){
                             w.specialCardCount--; 
-                            if (w.specialCardCount > 0){
-                                w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
+                            if (w.specialCardCount > 1){
+                                w.showText("Must place " + (w.specialCardCount) + "\nmore cards.", 500, 150);
                                 w.setPlayersTurn(true);
                             }
                             else{
@@ -63,7 +63,7 @@ public class slap extends Actor
                     }
                     else {
                         w.placeCardDown(w.getPlayerCard());
-                        if (w.specialCardCount > 0){
+                        if (w.specialCardCount > 1){
                             w.specialCardCount--;
                             w.setPlayersTurn(true);
                             w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);

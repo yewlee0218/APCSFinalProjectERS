@@ -10,7 +10,7 @@ import java.util.*;
 public class computer extends Actor
 {
     //private ArrayList<card> playerPile = new ArrayList<>();
-    public int timer = 100;
+    public int timer = 300;
     /**
      * Act - do whatever the computer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -50,8 +50,8 @@ public class computer extends Actor
         if (ifSpecialMethod()){
             timer--;
             if (w.ifPatternSlapped == false && timer < 0){
-                w.slapWin(w.computerCard);
-                timer = 100;
+                w.slapWin(w.computerCard, "No Special Card");
+                timer = 300;
             }
         }
     }
