@@ -30,7 +30,7 @@ public class MyWorld extends World
         prepare();
         initializeDeck();
         distributeCards();
-        GreenfootSound music = new GreenfootSound("ERS.mp3");
+        GreenfootSound music = new GreenfootSound("ERS2.mp3");
         music.playLoop();
         
     }
