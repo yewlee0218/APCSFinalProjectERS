@@ -24,28 +24,27 @@ public class player extends Actor
         checkIfLose();
         w.ifPatternSlapped = false; 
         if (Greenfoot.isKeyDown("space")){
+            if (w.couple()){
+                w.slapWin(w.playerCard, "couple");
+            }
+            else if (w.sandwich()){
+                w.slapWin(w.playerCard, "sandwich");
+                w.ifPatternSlapped = true; 
+            }
             if (w.marriage()){
-                w.slapWin(w.playerCard, "Marriage");
+                w.slapWin(w.playerCard, "marriage");
                 w.ifPatternSlapped = true; 
             } 
             else if (w.divorce()){
-                w.slapWin(w.playerCard, "Divorce");
-                w.ifPatternSlapped = true; 
-            }
-            else if (w.couple()){
-                w.slapWin(w.playerCard, "Double");
-                w.ifPatternSlapped = true; 
-            }
-            else if (w.sandwich()){
-                w.slapWin(w.playerCard, "Sandwich");
+                w.slapWin(w.playerCard, "divorce");
                 w.ifPatternSlapped = true; 
             }
             else if (w.redTen()){
-                w.slapWin(w.playerCard, "Red Ten");
+                w.slapWin(w.playerCard, "redTen");
                 w.ifPatternSlapped = true; 
             }
             else if (w.topBottom()){
-                w.slapWin(w.playerCard, "Top & Bottom");
+                w.slapWin(w.playerCard, "topBottom");
                 w.ifPatternSlapped = true; 
             }
             else if (w.threeInARow()){
