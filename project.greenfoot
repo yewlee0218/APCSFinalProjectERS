@@ -1,9 +1,9 @@
 #Greenfoot project file
 class.MyWorld.image=ERSbackground.jpeg
-class.card.image=blue-draught.png
-class.computer.image=pik.png
+class.card.image=box.png
+class.computer.image=bot.png
 class.player.image=man01.png
-class.slap.image=button-green.png
+class.slap.image=button.png
 dependency1.from=MyWorld
 dependency1.to=card
 dependency1.type=UsesDependency
@@ -27,8 +27,8 @@ dependency7.to=MyWorld
 dependency7.type=UsesDependency
 editor.fx.0.height=728
 editor.fx.0.width=800
-editor.fx.0.x=320
-editor.fx.0.y=51
+editor.fx.0.x=226
+editor.fx.0.y=47
 height=686
 package.numDependencies=7
 package.numTargets=5

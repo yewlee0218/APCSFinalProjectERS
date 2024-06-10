@@ -147,12 +147,28 @@ public class MyWorld extends World
     {
         card card = new card(5, 2);
         addObject(card,247,182);
+        GreenfootImage boxImage = card.getImage();
+        boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
+        card.setImage(boxImage);
+        
         computer computer = new computer();
         addObject(computer,267,38);
+        GreenfootImage image = computer.getImage();
+        image.scale(image.getWidth() / 728 * 50, image.getHeight() / 920 * 60);
+        computer.setImage(image);
+        
         player player = new player();
         addObject(player,262,337);
+        GreenfootImage playerImage = player.getImage();
+        playerImage.scale(playerImage.getWidth() / 320 * 70, playerImage.getHeight() / 320 * 70);
+        player.setImage(playerImage);
+        
         slap slap = new slap();
         addObject(slap,371,345);
+        GreenfootImage bimage = slap.getImage();
+        bimage.scale(bimage.getWidth() / 720 * 50, bimage.getHeight() / 720 * 50);
+        slap.setImage(bimage);
+        
     }
     public boolean isSpecial(){
         if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){

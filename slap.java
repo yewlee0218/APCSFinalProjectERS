@@ -41,8 +41,8 @@ public class slap extends Actor
         else {
             if (Greenfoot.mousePressed(this)){
                 if (w.cardInPile.size() > 0){
-                    boolean checkSpecial = w.ifSpecialCard(w.getPlayerCard());
                     if (beginning == 1){
+                        boolean checkSpecial = w.ifSpecialCard(w.getPlayerCard());
                         beginning = 0; 
                         w.placeCardDown(w.getPlayerCard());
                         if ((w.cardInPile.get(w.cardInPile.size()-2).getRank()) >= 10 && w.isSpecial() == false){
