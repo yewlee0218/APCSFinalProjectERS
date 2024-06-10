@@ -2,7 +2,7 @@
 class.MyWorld.image=ERSbackground.jpeg
 class.card.image=box.png
 class.computer.image=bot.png
-class.player.image=man01.png
+class.player.image=person.png
 class.slap.image=button.png
 dependency1.from=MyWorld
 dependency1.to=card
@@ -84,5 +84,5 @@ target5.y=0
 version=3.0.0
 width=1294
 world.lastInstantiated=MyWorld
-xPosition=7
+xPosition=59
 yPosition=25

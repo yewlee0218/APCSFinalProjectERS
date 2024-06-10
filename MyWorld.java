@@ -160,7 +160,7 @@ public class MyWorld extends World
         player player = new player();
         addObject(player,262,337);
         GreenfootImage playerImage = player.getImage();
-        playerImage.scale(playerImage.getWidth() / 320 * 70, playerImage.getHeight() / 320 * 70);
+        playerImage.scale(playerImage.getWidth()/ 320 * 70, playerImage.getHeight() / 320 * 70);
         player.setImage(playerImage);
         
         slap slap = new slap();
