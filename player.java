@@ -24,12 +24,25 @@ public class player extends Actor
         checkIfLose();
         w.ifPatternSlapped = false; 
         if (Greenfoot.isKeyDown("space")){
+<<<<<<< HEAD
             if (w.couple()){
                 w.slapWin(w.playerCard, "couple");
+=======
+            if (w.marriage()){
+                w.slapWin(w.playerCard, "Marriage");
+                w.ifPatternSlapped = true; 
+            } 
+            else if (w.divorce()){
+                w.slapWin(w.playerCard, "Divorce");
+                w.ifPatternSlapped = true; 
+            }
+            else if (w.couple()){
+                w.slapWin(w.playerCard, "Double");
+>>>>>>> 70f5e6e1ae88336c97a0b4dc0e3dc9ad70fa4732
                 w.ifPatternSlapped = true; 
             }
             else if (w.sandwich()){
-                w.slapWin(w.playerCard, "sandwich");
+                w.slapWin(w.playerCard, "Sandwich");
                 w.ifPatternSlapped = true; 
             }
             else if (w.marriage()){
@@ -41,11 +54,11 @@ public class player extends Actor
                 w.ifPatternSlapped = true; 
             }
             else if (w.redTen()){
-                w.slapWin(w.playerCard, "redTen");
+                w.slapWin(w.playerCard, "Red Ten");
                 w.ifPatternSlapped = true; 
             }
             else if (w.topBottom()){
-                w.slapWin(w.playerCard, "topBottom");
+                w.slapWin(w.playerCard, "Top & Bottom");
                 w.ifPatternSlapped = true; 
             }
             else if (w.threeInARow()){

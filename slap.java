@@ -47,41 +47,45 @@ public class slap extends Actor
                         w.placeCardDown(w.getPlayerCard());
                         if ((w.cardInPile.get(w.cardInPile.size()-2).getRank()) >= 10 && w.isSpecial() == false){
                             w.specialCardCount--; 
-                            if (w.specialCardCount > 1){
+                            if (w.specialCardCount > 0){
                                 w.showText("Must place " + (w.specialCardCount) + "\nmore cards.", 500, 150);
                                 w.setPlayersTurn(true);
                             }
                             else{
-                                w.setPlayersTurn(false);
-                                beginning = 1; 
+                                computersTurn(w);
                             }
                         }
                         else {
-                            w.setPlayersTurn(false);
-                            beginning = 1;
+                            computersTurn(w);
                         }
                     }
                     else {
                         w.placeCardDown(w.getPlayerCard());
-                        if (w.specialCardCount > 1){
+                        if (w.isSpecial()== true){
+                            computersTurn(w);
+                            w.showText("", 500, 150);
+                        }
+                        else if (w.specialCardCount > 0){
                             w.specialCardCount--;
                             w.setPlayersTurn(true);
                             w.showText("Must place " + w.specialCardCount + "\nmore cards.", 500, 150);
                         }
                         else{
-                            beginning = 1; 
-                            w.setPlayersTurn(false);
-                            w.showText("", 500, 150);
+                            w.slapWin(w.getComputerCard(), "No Special Card");
+                            computersTurn(w);
                         }
                     }
                 }
+                //very start of the game:
                 else{
                     w.placeCardDown(w.getPlayerCard());
                     w.setPlayersTurn(false);
                 }
-                
-                //w.setPlayersTurn(false); //i wanted to comment this out
             }
         }      
+    }
+    public void computersTurn(MyWorld world){
+        world.setPlayersTurn(false);
+        beginning = 1;
     }
 }
