@@ -23,7 +23,7 @@ public class computer extends Actor
     }
     private void displayScore(){
         MyWorld w = (MyWorld)getWorld();
-        w.showText("cards", 200, 50);
+        w.showText("Cards", 200, 50);
         w.showText(Integer.toString(w.computerCard.size()), 200, 100);
     }
     private boolean ifSpecialMethod(){

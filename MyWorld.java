@@ -172,9 +172,9 @@ public class MyWorld extends World
         GreenfootImage boxImage = card.getImage();
         boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
         card.setImage(boxImage);
-        if(hasSlapped == true || ifPatternSlapped == true){
-            removeObject(card);
-        }
+        //if(hasSlapped == true || ifPatternSlapped == true){
+            //removeObject(card);
+        //}
         
         computer computer = new computer();
         addObject(computer,267,38);
@@ -196,11 +196,9 @@ public class MyWorld extends World
         
     }
     public boolean isSpecial(){
-        if(cardInPile.size()>0){
-          if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){
+        if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){
             return true;
-            }  
-        }
+        }  
         return false;
     }
     public boolean ifSpecialCard(ArrayList<card> list){
