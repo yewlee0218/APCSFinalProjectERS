@@ -54,7 +54,7 @@ public class player extends Actor
             }
             else if (w.slapValid == true) {
                 w.slapLose(w.getPlayerCard());
-                w.ifPatternSlapped = false; 
+                w.ifPatternSlapped = true; 
                 w.slapValid = false;
             }
         }
