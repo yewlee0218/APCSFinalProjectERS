@@ -24,10 +24,8 @@ public class player extends Actor
         checkIfLose();
         w.ifPatternSlapped = false; 
         if (Greenfoot.isKeyDown("space")){
-<<<<<<< HEAD
             if (w.couple()){
                 w.slapWin(w.playerCard, "couple");
-=======
             if (w.marriage()){
                 w.slapWin(w.playerCard, "Marriage");
                 w.ifPatternSlapped = true; 
@@ -38,7 +36,6 @@ public class player extends Actor
             }
             else if (w.couple()){
                 w.slapWin(w.playerCard, "Double");
->>>>>>> 70f5e6e1ae88336c97a0b4dc0e3dc9ad70fa4732
                 w.ifPatternSlapped = true; 
             }
             else if (w.sandwich()){
