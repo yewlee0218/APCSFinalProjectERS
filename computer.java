@@ -49,9 +49,6 @@ public class computer extends Actor
         else if (w.threeInARow()){
             return true;
         }
-        //else if(w.specialCard()){
-            //return true;
-        //}
         return false;
     }
     private void checkCases(){
