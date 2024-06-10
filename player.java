@@ -27,23 +27,11 @@ public class player extends Actor
             if (w.couple()){
                 w.slapWin(w.playerCard, "couple");
             }
-            if (w.marriage()){
-                w.slapWin(w.playerCard, "marriage");
-                w.ifPatternSlapped = true; 
-            } 
-            else if (w.divorce()){
-                w.slapWin(w.playerCard, "divorce");
-                w.ifPatternSlapped = true; 
-            }
-            else if (w.couple()){
-                w.slapWin(w.playerCard, "couple");
-                w.ifPatternSlapped = true; 
-            }
             else if (w.sandwich()){
                 w.slapWin(w.playerCard, "sandwich");
                 w.ifPatternSlapped = true; 
             }
-            else if (w.marriage()){
+            if (w.marriage()){
                 w.slapWin(w.playerCard, "marriage");
                 w.ifPatternSlapped = true; 
             } 
