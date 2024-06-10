@@ -51,6 +51,10 @@ public class player extends Actor
                 w.slapWin(w.playerCard, "Three in a Row");
                 w.ifPatternSlapped = true; 
             }
+            //else if(w.specialCard()){
+              //  w.slapWin(w.playerCard, "Special Card");
+                //w.ifPatternSlapped = true;
+            //}
             else if (w.slapValid == true) {
                 w.slapLose(w.getPlayerCard());
                 w.ifPatternSlapped = false; 

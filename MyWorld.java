@@ -8,7 +8,6 @@ import java.util.*;
  */
 public class MyWorld extends World
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -174,7 +173,6 @@ public class MyWorld extends World
         boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
         card.setImage(boxImage);
         if(hasSlapped == true || ifPatternSlapped == true){
-            card = null;
             removeObject(card);
         }
         
@@ -198,8 +196,10 @@ public class MyWorld extends World
         
     }
     public boolean isSpecial(){
-        if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){
+        if(cardInPile.size()>0){
+          if (cardInPile.get(cardInPile.size() - 1).getRank() >= 10){
             return true;
+            }  
         }
         return false;
     }
@@ -228,4 +228,11 @@ public class MyWorld extends World
         }
         return false;
     }
+    //public boolean specialCard(){
+      //  if(isSpecial()){
+        //    if(cardInPile.get(cardInPile.size()-2).getRank()>=10){
+          //      return true;
+            //}
+        //}
+        //return false;
 }
