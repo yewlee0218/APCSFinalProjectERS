@@ -43,6 +43,12 @@ public class computer extends Actor
         else if (w.redTen()){
             return true;
         }
+        else if (w.topBottom()){
+            return true;
+        }
+        else if (w.threeInARow()){
+            return true;
+        }
         return false;
     }
     private void checkCases(){

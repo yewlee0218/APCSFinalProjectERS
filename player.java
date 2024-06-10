@@ -26,6 +26,7 @@ public class player extends Actor
         if (Greenfoot.isKeyDown("space")){
             if (w.couple()){
                 w.slapWin(w.playerCard, "couple");
+            }
             if (w.marriage()){
                 w.slapWin(w.playerCard, "marriage");
                 w.ifPatternSlapped = true; 
