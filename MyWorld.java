@@ -82,8 +82,9 @@ public class MyWorld extends World
         }
         cardInPile.clear();
         List remove = getObjects( card.class );
-        for (Object objects : remove)
+        for (Object objects : remove){
             removeObject( ( card ) objects );
+        }
         card card = new card(1, 1);
         addObject(card,247,182);
         GreenfootImage boxImage = card.getImage();
