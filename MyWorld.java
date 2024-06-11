@@ -81,6 +81,11 @@ public class MyWorld extends World
             list.add(cardInPile.get(i));
         }
         cardInPile.clear();
+        List remove = getObjects( card.class );
+        for (Object objects : remove)
+            removeObject( ( card ) objects );
+        card card = new card(1, 1);
+        addObject(card,247,182);
         specialCardCount = 0; 
         showText(s, 500, 150); 
         Greenfoot.delay(100);
