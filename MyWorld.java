@@ -86,6 +86,10 @@ public class MyWorld extends World
             removeObject( ( card ) objects );
         card card = new card(1, 1);
         addObject(card,247,182);
+        GreenfootImage boxImage = card.getImage();
+        boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
+        card.setImage(boxImage);
+        
         specialCardCount = 0; 
         showText(s, 500, 150); 
         Greenfoot.delay(100);
