@@ -155,7 +155,7 @@ public class MyWorld extends World
         return false;
     }
     public boolean topBottom(){
-        if (cardInPile.size() > 0){
+        if (cardInPile.size() > 1){
             if (sameCard(cardInPile.get(0), cardInPile.get(cardInPile.size() - 1))){
                 return true;
             }
@@ -221,23 +221,6 @@ public class MyWorld extends World
         else if (cardInPile.get(cardInPile.size() - 1).getRank() == 13){ // ace
             specialCardCount = 4;
         }
-        /*
-        int time = 50;
-        if (specialCardCount > 0){
-            if (time > 0){
-                time--;
-            }
-            else{
-                placeCardDown(list);
-                specialCardCount--;
-                time = 50;
-            }
-            if (isSpecial()){
-                return true;
-            }
-        }
-        */
-
         while (specialCardCount > 0){
             placeCardDown(list);
             Greenfoot.delay(50);

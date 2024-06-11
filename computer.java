@@ -26,7 +26,7 @@ public class computer extends Actor
         w.showText("Cards", 200, 50);
         w.showText(Integer.toString(w.computerCard.size()), 200, 100);
     }
-    private boolean ifSpecialMethod(){
+    private boolean ifIsSpecialMethod(){
         MyWorld w = (MyWorld)getWorld();
         if (w.marriage()){
             return true;
@@ -53,10 +53,10 @@ public class computer extends Actor
     }
     private void checkCases(){
         MyWorld w = (MyWorld)getWorld();
-        if (ifSpecialMethod()){
+        if (ifIsSpecialMethod()){
             timer--;
             if (w.ifPatternSlapped == false && timer < 0){
-                w.slapWin(w.computerCard, "No Special Card");
+                w.slapWin(w.computerCard, "slapped");
                 timer = 300;
             }
         }
