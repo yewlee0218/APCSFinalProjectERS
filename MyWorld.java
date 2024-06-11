@@ -81,6 +81,7 @@ public class MyWorld extends World
             list.add(cardInPile.get(i));
         }
         cardInPile.clear();
+        specialCardCount = 0; 
         showText(s, 500, 150); 
         Greenfoot.delay(100);
         showText("", 500, 150);
@@ -172,9 +173,6 @@ public class MyWorld extends World
         GreenfootImage boxImage = card.getImage();
         boxImage.scale(boxImage.getWidth()/1200 * 50, boxImage.getHeight()/1200 * 50);
         card.setImage(boxImage);
-        //if(hasSlapped == true || ifPatternSlapped == true){
-            //removeObject(card);
-        //}
         
         computer computer = new computer();
         addObject(computer,267,38);
@@ -190,9 +188,9 @@ public class MyWorld extends World
         
         slap slap = new slap();
         addObject(slap,371,345);
-        GreenfootImage bimage = slap.getImage();
-        bimage.scale(bimage.getWidth() / 720 * 50, bimage.getHeight() / 720 * 50);
-        slap.setImage(bimage);
+        GreenfootImage buttonImage = slap.getImage();
+        buttonImage.scale(buttonImage.getWidth() / 720 * 50, buttonImage.getHeight() / 720 * 50);
+        slap.setImage(buttonImage);
         
     }
     public boolean isSpecial(){
@@ -214,6 +212,23 @@ public class MyWorld extends World
         else if (cardInPile.get(cardInPile.size() - 1).getRank() == 13){ // ace
             specialCardCount = 4;
         }
+        /*
+        int time = 50;
+        if (specialCardCount > 0){
+            if (time > 0){
+                time--;
+            }
+            else{
+                placeCardDown(list);
+                specialCardCount--;
+                time = 50;
+            }
+            if (isSpecial()){
+                return true;
+            }
+        }
+        */
+
         while (specialCardCount > 0){
             placeCardDown(list);
             Greenfoot.delay(50);

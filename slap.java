@@ -39,19 +39,13 @@ public class slap extends Actor
         }
         else {
             if (Greenfoot.mousePressed(this)){
-                if (w.cardInPile.size() > 0){
-                    if (w.isSpecial()){
-                        boolean check = w.ifSpecialCard(w.getPlayerCard());
-                        if (!check){
-                            w.slapWin(w.getComputerCard(), "No Special Card");
-                            w.setPlayersTurn(true);
-                        }
-                        else{
-                            w.setPlayersTurn(false);
-                        }
+                if (w.cardInPile.size() > 0 && w.isSpecial()){
+                    boolean check = w.ifSpecialCard(w.getPlayerCard());
+                    if (!check){
+                        w.slapWin(w.getComputerCard(), "No Special Card");
+                        //w.setPlayersTurn(true);
                     }
                     else{
-                        w.placeCardDown(w.getPlayerCard());
                         w.setPlayersTurn(false);
                     }
                 }
