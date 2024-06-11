@@ -215,22 +215,13 @@ public class MyWorld extends World
             specialCardCount = 4;
         }
         while (specialCardCount > 0){
-            if (!isPlayersTurn()){
-                placeCardDown(list);
-                Greenfoot.delay(50);
-                specialCardCount--;
-            }
+            placeCardDown(list);
+            Greenfoot.delay(50);
+            specialCardCount--;
             if (isSpecial()){
                 return true;
             }
         }
         return false;
     }
-    //public boolean specialCard(){
-      //  if(isSpecial()){
-        //    if(cardInPile.get(cardInPile.size()-2).getRank()>=10){
-          //      return true;
-            //}
-        //}
-        //return false;
 }
